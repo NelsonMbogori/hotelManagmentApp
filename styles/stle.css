@@ -1,0 +1,362 @@
+/*fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100&family=Fredoka:wght@300;400;600&family=Rajdhani&display=swap');
+
+
+
+/*variables*/
+:root{
+    --background-color1: #101010;
+    --text-color1: white;
+    --color-shadow: grey; 
+    --card-border-radius: 2rem;
+    --card-padding: 1.8rem;
+    --box-shadow: 0 2rem 3rem var(--color-shadow)
+}
+
+/*styling*/
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    border: 0;
+}
+.body{
+    width: 100vh;
+    height: 100vh;
+    font-family: fredoka, sans-serif ;
+    font-size: 0.5rem;
+    user-select: none;
+    overflow-x: hidden;
+    background-color: #f6f6f9;
+    
+}
+a{
+    color:black;
+}
+img{
+    display: block;
+    width: 100%;
+}
+h1{
+    font-size: 25px;
+}
+h2{
+    font-size: 20px;
+}
+.text-muted{
+    color: grey;
+
+}
+.container{
+    display: grid;
+    width:96%;
+    margin:0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 15rem auto 70rem;
+}
+aside{
+    height: 100vh;
+    background-color: white;
+}
+aside .top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+
+}
+aside .logo{
+    display: flex;
+    gap: 0.5rem;
+}
+aside .logo img{
+    width: 4rem;
+    height: 2rem;
+}
+aside .side_bar{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+}
+aside .side_bar a{
+    display: flex;
+    margin-left: 2rem;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 2.5rem;
+    transition: all 300ms ease;
+    
+}
+aside .side_bar a.active {
+    background-color:grey;
+    margin-left:0;
+}
+aside .side_bar a.active:before{
+    content: "";
+    width:6px;
+    height:100%;
+    background-color: #101010;
+}
+aside .side_bar a:hover{
+    color:blue;
+}
+
+/*form styling*/
+.container .forms{
+    display: flex;
+    align-items: center;
+    height: 440px;
+    width: 200%;
+    transition: height 0.2s ease;
+}
+
+
+.container .form{
+    width: 50%;
+    padding: 30px;
+    background-color: #fff;
+    transition: margin-left 0.18s ease;
+}
+
+.container.active .login{
+    margin-left: -50%;
+    opacity: 0;
+    transition: margin-left 0.18s ease, opacity 0.15s ease;
+}
+
+.container .signup{
+    opacity: 0;
+    transition: opacity 0.09s ease;
+}
+.container.active .signup{
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+.container.active .forms{
+    height: 600px;
+}
+.container .form .title{
+    position: relative;
+    font-size: 27px;
+    font-weight: 600;
+}
+
+.form .title::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background-color: #4070f4;
+    border-radius: 25px;
+}
+
+.form .input-field{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.input-field input{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0 35px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.input-field input:is(:focus, :valid){
+    border-bottom-color: #4070f4;
+}
+
+.input-field i{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 23px;
+    transition: all 0.2s ease;
+}
+
+.input-field input:is(:focus, :valid) ~ i{
+    color: #4070f4;
+}
+
+.input-field i.icon{
+    left: 0;
+}
+.input-field i.showHidePw{
+    right: 0;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.form .checkbox-text{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.checkbox-text .checkbox-content{
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-content input{
+    margin: 0 8px -2px 4px;
+    accent-color: #4070f4;
+}
+
+.form .text{
+    color: #333;
+    font-size: 14px;
+}
+/*main section*/
+main{
+    display: grid;
+    grid-template-columns: repeat(3);
+    width: 100 ;
+    
+}
+main .date{
+    width: 30%;
+    display: grid;
+    grid-template-columns: repeat(4,10fr);
+    display: inline-block;
+    margin-top: 0.4 rem;
+    border-radius: var(--card-border-radius) ;
+    padding:1rem;
+    background-color: antiquewhite;
+    gap:2rem ;
+    
+}
+main .the3{
+    display: grid;
+
+    grid-template-columns: repeat(3,10fr);
+    grid-gap: 20px;
+}
+main .the3> div{
+
+   padding:var(--card-padding);
+   border-radius: var(--card-border-radius);
+   box-shadow: var(--box-shadow);
+   height: 30vh;
+}
+main .the3> div:hover{
+    box-shadow: none ;
+}
+
+main .recent_orders{
+    margin-bottom: 10rem;
+    
+
+} 
+main .recent_orders h2{
+    margin-bottom: 0.rem;
+}
+
+main .recent_orders table{
+    width:100vh;
+    border-radius:var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition:all 300ms ease;
+    height:40vh;
+    
+}
+main .recent_orders table:hover{
+    box-shadow:none;
+    
+}
+
+.top_center{
+    height:40vh ;
+    border-bottom: 0px;
+    gap:5rem ;
+    
+}
+/*medium sized screens*/
+@media screen and (max-width:1000px){
+   
+    .container{
+      width:94%;
+      grid-template-columns: 7rem auto 23rem;
+   }
+   aside .side_bar h2{
+       display:none;
+   }
+   
+   aside .side_bar a{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 2.5rem;
+    transition: all 300ms ease;
+    
+}
+aside .top{
+    justify-content:left;
+}
+main .recent_orders{
+   width: 90vw;
+   transform: translateX(-20%);
+   left: 50%;
+   margin: 5rem 0 0 8rem;
+ 
+}
+main .the3{ 
+    padding: 10px;
+    width: 81vw;
+}
+
+main .recent_orders table{
+    width: 80%;
+}
+  
+}
+/*styling the forms*/
+.form_container{
+    position: relative;
+    max-width: 430px;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 0 20px;
+}
+.form_container .forms{
+    display: flex;
+    align-items: center;
+    height: 440px;
+    width: 200%;
+    transition: height 0.2s ease;
+}
+.form_container .form{
+    width: 50%;
+    padding: 30px;
+    background-color: #fff;
+    transition: margin-left 0.18s ease;
+}
+.maybe{
+    width: 100%;
+    height: 100vh;
+    background-color: #101010
+}
