@@ -29,7 +29,7 @@ class Registercontroller
         $result = $this->conn->query($checkuser);
 
         ///change
-        if($result->num_rows > 0){
+        if($result->num_rows > 5){
             return true;
         }
         else{

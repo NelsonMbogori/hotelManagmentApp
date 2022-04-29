@@ -1,8 +1,11 @@
 <?php
 
+// include('configs/app.php');
+include_once('controlers/authenticatedaccess.php');
 
 class logincontroller
 {
+    
     public function __construct()
     {
         $db = new Connection;
@@ -11,37 +14,43 @@ class logincontroller
     } 
     public function userlogin($email, $password)
     {
+        
         $checkuser = "SELECT * FROM users WHERE email = '$email' AND password = '$password' LIMIT 1";
         $result = $this->conn->query($checkuser);
         $therow = mysqli_fetch_array($result); 
         if ($result->num_rows > 0){
             if($therow['verify_status'] == 1)//if email is verified
             {
-                if($therow['role'] == 1)//if email is verified and role is admin
+                
+                if($therow['roles'] == 1)//if email is verified and role is admin
                 {
                     $data = $result->fetch_assoc();
-                    $this->userauthentication($data);
+                    $the_role = $data['roles'];
+                    $the_id = $data['id'];
+                    $_SESSION['admin'] = true;
+                    $_SESSION['email'] = $email;
+
+                    $this->userauthentication($the_role,$the_id);
                     redirect('admin welcome','dashboard.php');
-                    return true;
+
+                    return $data;
 
                 }
-                else {
+                 if ($therow['roles'] == 0){
                     $data = $result->fetch_assoc();
-                    $this->userauthentication($data);
+                    $the_role = $data['roles'];
+                    $the_id = $data['id'];
+                    $this->userauthentication($the_role,$the_id);
                     redirect('welcome','index.php');
-                    return true;
+                    
+                    return false;
                 }
-                
             }
             else{
                 redirect('please verify email','login.php');
                 return false;
             }
-        // if($result->num_rows > 0){
-        //     $data = $result->fetch_assoc();
-        //     $this->userauthentication($data);
-        //     return true;
-        // }
+       
         }
         
         else{
@@ -49,25 +58,33 @@ class logincontroller
             return false;
         }
     }
+    
+    private function userauthentication($the_role,$the_id){
+            $_SESSION['authenticated'] = true;
+            $_SESSION['auth_role'] = $the_role;
+            $_SESSION['user_id'] = $the_id;
+
+            // $_SESSION['auth_user'] = [
+
+            // 'user_id' => $data['id'],
+            // 'user_fname' => $data['fname'],
+            // 'user_email' => $data['email'],
+
+            // ];
+            
+            
+    }
+   
     public function loggedin()
     {
-        if(isset($_SESSION['authenticated']) === TRUE)
+        if(isset($_SESSION['authenticated']) === true)
         {
-             redirect("already loged in","dashboard.php");
+            redirect("already logged in",'');
             return true;
         }
         else{
             return false;
         }
-    }
-    private function userauthentication($data){
-            $_SESSION['authenticated'] = true;
-            $_SESSION['auth_role'] = $data['role'];
-            $_SESSION['auth_user'] = [
-                'user_id' => $data['user_id'],
-                'user_fname' => $data['fname'],
-                'user_email' => $data['email']
-            ];
     }
     
     public function logout()
@@ -76,6 +93,12 @@ class logincontroller
         {
             unset($_SESSION['authenticated']);
             unset($_SESSION['auth_user']);
+            unset($_SESSION['admin']);
+            unset($_SESSION['hahaha']);
+            unset($_SESSION['user']);
+            unset($_SESSION['auth_role']);
+            unset($_SESSION['userid']);
+            unset($_SESSION['user_id']);
             return true;
         }
         else{
@@ -83,6 +106,32 @@ class logincontroller
         }
 
     }
+    public function isadm()
+    {
+        if($_SESSION['admin']!='1'){
+
+            echo
+              "
+              <script>
+                alert('Not logged in as admin');
+                document.location.href = 'index.php';
+              </script>
+              ";
+        }
 }
+        // if( isset($_SESSION['admin']) === TRUE)
+        // {
+            
+        //     echo"wwwwww";
+        // }
+        // else{
+            
+        //     echo "lllll";
+        // }
+
+    }
+    
+
+
 
 ?>

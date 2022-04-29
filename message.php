@@ -1,7 +1,7 @@
 <?php
 if(isset($_SESSION['message']))
 {
-    echo "<h5>".$_SESSION['message']."</h5>";
+    echo "<h2>".$_SESSION['message']."</h2>";
     unset($_SESSION['message']);
 }
 

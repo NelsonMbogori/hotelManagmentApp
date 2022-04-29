@@ -1,0 +1,144 @@
+*{
+    padding: 0px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+    
+
+}
+/*styling top header*/
+.header{
+  position: relative;
+  min-height: 150px;
+  background-color: #097969;
+  /*background-image: url("../../images/header_bg.jpg");*/
+
+}
+.header_content{
+  padding-top:10px;
+  padding-left:30%;
+  padding-right:30%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  text-size:10px;
+  width:100%;
+  background-color : white;
+
+  display: inline;
+}
+.header_content a{
+  display: inline-flex;
+  padding:5px;
+  color: black;
+}
+.inner{
+
+background-color: #097969;
+color: white;
+width: 720px;
+}
+ .header_content a{
+    display: inline-flex;
+    padding:5px;
+    color: #fff;
+ }
+ /*divide bdy using grids*/
+ .container{
+    display: grid;
+    height:70vh;
+    
+    grid-template-columns: 1fr 3fr ;
+ }
+.navbar .h1{
+    color:white;
+}
+
+/*sidebar styling*/
+
+
+
+.container .sidebar{
+  width: 80%;
+  height: 100%;
+  background: #097969;
+  padding: 30px;
+  position: relative;
+}
+
+
+
+.container .sidebar h2{
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.container .sidebar ul li{
+  padding: 15px;
+  border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.container .sidebar ul li a{
+  color: #bdb8d7;
+  display: block;
+}
+
+.container .sidebar ul li a .fas{
+  width: 25px;
+}
+
+.container .sidebar ul li:hover{
+  background-color: #594f8d;
+}
+
+.container .sidebar ul li:hover a{
+  color: #fff;
+}
+/*styling table*/
+.content_table{
+  border-collapse: collapse ;
+  margin: 25px;
+  font-size: 14px;
+  min-width: 400px;
+
+}
+.content_table thead tr{
+  background-color: #097969;
+  color: #fff;
+  text-align: left;
+  font-weight: bold;
+}
+.content_table th,
+.content_table td{
+  padding: 12px 15px;
+}
+.content_table tbody tr {
+  border-bottom: 1px solid #ddd;
+
+}
+.content_table tbody tr:nth-of-type(even){
+  background-color: #f3f3f3;
+}
+.content{
+  display: grid;
+  max-width:960px ;
+  margin: 0;
+
+}
+
+.p_one {
+background-color: rgb(236, 223, 223);
+font-family: 'Courier New', Courier, monospace;
+text-align: center;
+font-size: 20px;
+}
+
+
+

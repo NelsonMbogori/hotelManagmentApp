@@ -1,51 +1,58 @@
-*{
-    
-    padding: 0px;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
-    
-}
 h5{
     font-size:15px;
     color: white;
 }
 .form_card{
-    width: 50vw;
-    height:75vw;
-    box-shadow: 0 0 40px 20px rgba(0,0,0,0.26);
-   
-    background-image: url("../images/background.jpg");
+    width: 30vw;
+    height:40vw;
+    border: 1px solid black ;
+    border-radius: 20px;
+    /* box-shadow: 0 0 40px 20px rgba(0,0,0,0.26);
+    background-color: #f6f6f9; */
+    /* background-image: url("../images/background.jpg"); */
+    background-repeat: no-repeat;
+}
+.form_card_login{
+    width: 30vw;
+    height:10vw;
+    border: 1px solid black ;
+    border-radius: 20px;
+    /* box-shadow: 0 0 40px 20px rgba(0,0,0,0.26);
+    background-color: #f6f6f9; */
+    /* background-image: url("../images/background.jpg"); */
     background-repeat: no-repeat;
 }
 .form_input{
     width: 90%;
-    background: transparent;
-    border: 1px solid #fff ;
+    background-color: white;
+    border: 1px solid black ;
     margin: 5px 0 10px;
     height: 40px;
     font-size: 30px;
     border-radius: 20px;
     padding: 0 10px;
     box-sizing: border-box;
-    color: white; 
+    color: black; 
     cursor: pointer;
 
     
 }
+.form_input_description{
+    height: 90px;
+    border: 1px solid rgb(60, 49, 49) ;
+    border-radius: 20px;
+}
 ::placeholder {
-    color: white;
+    color: grey;
     font-size: 20px;
 }
 .button{
-    width: 30%;
-    padding: 5px;
-    background:#097969;
+    width: 20%;
+    padding: 2px;
+    background:rgb(78, 70, 70);
     border: 1px solid #fff ;
     height: 50px;
-    font-size: 30px;
+    font-size: 15px;
     margin: 35px 0 10px;
     border-radius: 20px;
     color: white;
@@ -56,10 +63,50 @@ h5{
 .select{
     font-size: 20px;
     margin: 5px  10px;
-    border: 1px solid #fff ;
-    background: transparent;
+    background-color: white;
+    border: 1px solid rgb(60, 49, 49) ;
     width: 70%;
+    color: black;
     height: 40px;
     border-radius: 20px;
-    color: white;
+    
+}
+@media screen and (max-width:1000px){
+   
+    .container{
+      width:94%;
+      grid-template-columns: 7rem auto 23rem;
+   }
+   aside .side_bar h2{
+       display:none;
+   }
+   
+   aside .side_bar a{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 2.5rem;
+    transition: all 300ms ease;
+    
+}
+aside .top{
+    justify-content:left;
+}
+main .recent_orders{
+   width: 90vw;
+   transform: translateX(-20%);
+   left: 50%;
+   margin: 5rem 0 0 8rem;
+ 
+}
+main .the3{ 
+    padding: 10px;
+    width: 81vw;
+}
+
+main .recent_orders table{
+    width: 80%;
+}
+  
 }

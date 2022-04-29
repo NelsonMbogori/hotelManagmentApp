@@ -14,7 +14,8 @@ if(isset($_GET['verify_token']))
     {
         
         $row = mysqli_fetch_array($verifyquerry_run);
-        $your_status=$row['verify_status'];
+        $your_status==1;
+        // $your_status=$row['verify_status'];
         if($your_status == 0 )
         {
             $clicked_token = $row['verify_token'];

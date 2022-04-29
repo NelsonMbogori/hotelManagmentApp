@@ -1,16 +1,20 @@
 <?php
-include('configs/app.php');
+// // include('configs/app.php');
 
-include('codes/authentication.php');
-include_once('controlers/authenticatedaccess.php  ');
+// include('codes/authentication.php');
+// include_once('controlers/authenticatedaccess.php  ');
 
-$authenticated = new authenticatedaccess;
-//  $authenticated->adminaccess();
+// // // $authenticated = new authenticatedaccess;
+//  $auth->loggedin();
+// // // $authenticated->adminaccess();
+
+// include('codes/authentication.php');
+include_once('./controlers/logincontroller.php');
+
+$authenticated2 = new logincontroller;
+$authenticated2->isadm();
 
 ?>
-
-
-
 
 
 <!DOCTYPE html>
@@ -42,14 +46,13 @@ $authenticated = new authenticatedaccess;
             <a href="index.php"  class="active"><span class="material-icons">dashboard</span>
                     <h2>dashboard</h2>
                 </a><br><br>
-                <a href="bookings.php"><span class="material-icons">app_registration</span>
-                    <h2>book room</h2>
+                
                 </a><br><br>
-                <a href="location.php" ><span class="material-icons">location_on</span>
-                    <h2>location</h2>
+                <a href="viewinventory.php" ><span class="material-icons">location_on</span>
+                    <h2>inventory</h2>
                 </a><br><br>
-                <a href="gallery.php" ><span class="material-icons">collections</span>
-                    <h2>gallery</h2>
+                <a href="viewbookings.php" ><span class="material-icons">collections</span>
+                    <h2>bookings</h2>
                 </a><br><br>
                 <a href="login.php"><span class="material-icons">login</span>
                     <h2>login</h2>
@@ -57,9 +60,10 @@ $authenticated = new authenticatedaccess;
                 <a href="charts.php"><span class="material-icons">show_chart</span>
                     <h2>analytics</h2>
                 </a>
-                <a href="login.php"><span class="material-icons">book</span>
-                    <h2>bookings</h2>
+                <a href="users.php"><span class="material-icons">show_chart</span>
+                    <h2>users</h2>
                 </a>
+                
 
                 
 
@@ -93,44 +97,60 @@ $authenticated = new authenticatedaccess;
             </div>
           
         <div class="recent_orders">
-            <h2>orders</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>nnnnnn</th>
-                        <th>nnnnnn</th>
-                        <th>nnnnnn</th>
-                        <th>nnnnnn</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>nnnnnnnnn</td>
-                        <td>nnnnnnnnn</td>
-                        <td>nnnnnnnnn</td>
-                        <td>nnnnnnnnn</td>
-                    </tr>
-                    <tr>
-                        <td>nnnnnnnnn</td>
-                        <td>nnnnnnnnn</td>
-                        <td>nnnnnnnnn</td>
-                        <td>nnnnnnnnn</td>
-                    </tr>
-                    <tr>
-                        <td>nnnnnnnnn</td>
-                        <td>nnnnnnnnn</td>
-                        <td>nnnnnnnnn</td>
-                        <td>nnnnnnnnn</td>
-                    </tr>
-                    <tr>
-                        <td>nnnnnnnnn</td>
-                        <td>nnnnnnnnn</td>
-                        <td>nnnnnnnnn</td>
-                        <td>nnnnnnnnn</td>
-                    </tr>
-                </tbody>
-            </table>
-            
+            <h2> recent bookings</h2>
+            <?php
+
+$conn = mysqli_connect('localhost','root','','nelson');
+
+$query = "SELECT * FROM registration_2";
+$data = mysqli_query($conn,$query);
+
+$total = mysqli_num_rows($data);
+
+
+
+
+if($total != 0){
+    ?>
+    <table class="content_table">
+    <thead >
+    <tr>
+        <th>id</th>
+        <th>firstname</th>
+        <th>middlename</th>
+        <th>surname</th>
+        <th>location</th>
+        <th>email</th>
+        <th>checkin_date</th>
+        
+    </tr>
+    </thead>
+    <tbody>   
+     <?php
+      while($result = mysqli_fetch_assoc($data)){
+        echo "<tr>
+                <td>".$result['user_id']."</td>
+                <td>".$result['firstname']."</td>
+                <td>".$result['middlename']."</td>
+                <td>".$result['surname']."</td>
+                <td>".$result['checkout_date']."</td>
+                <td>".$result['email']."</td>
+                <td>".$result['checkin_date']."</td>
+                
+            </tr> 
+             ";
+             
+      }
+}
+else{
+    echo "<tr>
+    <td>No</td>
+    </tr>";
+}
+?>
+</tbody>
+</table>
+            <?php include('message.php'); ?>
         </main>
         <?php include('message.php'); ?>
 

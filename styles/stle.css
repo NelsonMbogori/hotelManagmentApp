@@ -348,15 +348,14 @@ main .recent_orders table{
     height: 440px;
     width: 200%;
     transition: height 0.2s ease;
+    -webkit-transition: height 0.2s ease;
+    -moz-transition: height 0.2s ease;
+    -ms-transition: height 0.2s ease;
+    -o-transition: height 0.2s ease;
 }
 .form_container .form{
     width: 50%;
     padding: 30px;
     background-color: #fff;
     transition: margin-left 0.18s ease;
-}
-.maybe{
-    width: 100%;
-    height: 100vh;
-    background-color: #101010
 }

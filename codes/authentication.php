@@ -30,8 +30,8 @@ if(isset($_POST['login_btn']))
     $checklogin = $auth->userlogin($email,$password);
     if($checklogin)
     {
-         redirect('logged in successfully','dashboard.php ');
         
+         redirect('logged in successfully','index.php ');
     }
     else{
         redirect("invalid email or pasword","login.php");
@@ -113,4 +113,28 @@ function sendEmailVerification($name,$email,$verify_token)
         $mail->smtpClose();
     }
 
+    if(isset($_POST['logout_btn']))
+{
+    $checklogout = $auth->logout();
+    if($checklogout)
+    {
+        redirect('logged out successfully','login.php');
+    }
+}
+ 
+
+
+// if(isset($_POST['update']))
+// {
+//     $firstname =  validateinput($db->conn, $_POST['firstname']);
+//     $middlename =  validateinput($db->conn, $_POST['middlename']);
+//     $surname =  validateinput($db->conn, $_POST['surname']);
+//     $gender =  validateinput($db->conn, $_POST['gender']);
+//     $location =  validateinput($db->conn, $_POST['location']);
+//     $id =   $_GET['user_id'];
     
+
+//     $update = new updatecontroller;
+//     $updatecheck = $update->update($firstname,$middlename,$surname,$gender,$location,$id);
+//     return $updatecheck;
+// }

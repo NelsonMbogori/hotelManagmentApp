@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 define('host','localhost');
 define('username','root');
 define('password','');
@@ -10,7 +11,6 @@ define('site_url','http://localhost/yr2_prj/');
 include_once('connection.php');
 
 $db = new connection;
-
 
 function validateinput($dbcon, $input)
 {

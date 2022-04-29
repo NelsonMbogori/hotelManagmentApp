@@ -1,8 +1,6 @@
 <?php
 // include('configs/app.php');
-include('configs/authentication.php');
-
-
+include('codes/authentication.php');
 //  include('includes/sidebar.php');
 
 

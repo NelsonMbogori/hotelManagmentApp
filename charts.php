@@ -8,6 +8,7 @@
 
 	$data1 = '';
 	$data2 = '';
+	$data3=0;
 
 	//query to get data from the table
 	$sql = "SELECT * FROM `datasets` ";
@@ -18,10 +19,21 @@
 
 		$data1 = $data1 . '"'. $row['expenses'].'",';
 		$data2 = $data2 . '"'. $row['income'] .'",';
+		
 	}
 
 	$data1 = trim($data1,",");
 	$data2 = trim($data2,",");
+?>
+<?php
+// include('configs/app.php');
+
+include_once('./controlers/logincontroller.php');
+
+$authenticated2 = new logincontroller;
+$authenticated2->isadm();
+// $authenticated->adminaccess();
+
 ?>
 
 <!DOCTYPE html>
@@ -29,19 +41,14 @@
 	<head>
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link href="./styles/style2.css" rel="stylesheet">   
 		<title> data visualization</title>
 
 		<style type="text/css">			
-			body{
-				font-family: Arial;
-			    margin: 80px 100px 10px 100px;
-			    padding: 0;
-			    color: white;
-			    text-align: center;
-			    background: #555652;
-			}
-
-			.container {
+			.container2 {
+				width: 80vw;
 				color: #E8E9EB;
 				background: #222;
 				border: #555652 1px solid;
@@ -50,16 +57,62 @@
 		</style>
 
 	</head>
+	<body class="body">
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src = "./images/logo.png">
+                    <h1>name</h1>
+                    
+                </div>
+            </div>
+            <div class="close_btn">
 
-	<body>	   
-	    <div class="container">	
+            </div>
+            <div class="side_bar">
+            <a href="dashboard.php" ><span class="material-icons">dashboard</span>
+                    <h2>dashboard</h2>
+                </a><br><br>
+                <a href="bookings.php"><span class="material-icons">app_registration</span>
+                    <h2>book room</h2>
+                </a><br><br>
+                <a href="location.php" ><span class="material-icons">location_on</span>
+                    <h2>location</h2>
+                </a><br><br>
+                <a href="gallery.php" ><span class="material-icons">collections</span>
+                    <h2>gallery</h2>
+                </a><br><br>
+                <a href="login.php"><span class="material-icons">login</span>
+                    <h2>login</h2>
+                </a>   
+                <a href="charts.php"  class="active"><span class="material-icons">show_chart</span>
+                    <h2>analytics</h2>
+                </a>
+                <a href="index.php"><span class="material-icons">book</span>
+                    <h2>home</h2>
+                </a>
+
+                
+
+                <span class="material-icons">login</span>
+                    <form action="login.php" method="POST">
+                        <button type="submit" name="logout_btn">logout</button> 
+                    </form>
+                </a>               
+            </div>
+        </aside>
+		<main>
+
+ 
+	    <div class="container2">	
 	    <h1>expenses vs income</h1>       
-			<canvas id="chart" style="width: 40%; height: 20vh; background: #222; border: 1px solid #555652; margin-top: 10px;"></canvas>
+			<canvas id="chart" style="width: 10vw; height: 10vh; background: #222; border: 1px solid #555652; margin-top: 10px;"></canvas>
 
 			<script>
 				var ctx = document.getElementById("chart").getContext('2d');
     			var myChart = new Chart(ctx, {
-        		type: 'line',
+        		type: 'bar',
 		        data: {
 		            labels: [1,2,3,4,5,6,7,8,9],
 		            datasets: 
@@ -88,6 +141,6 @@
 		    });
 			</script>
 	    </div>
-	    
+	    </main>
 	</body>
 </html>
