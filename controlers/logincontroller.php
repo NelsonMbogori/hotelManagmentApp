@@ -41,7 +41,13 @@ class logincontroller
                     $the_role = $data['roles'];
                     $the_id = $data['id'];
                     $this->userauthentication($the_role,$the_id);
-                    redirect('welcome','index.php');
+                    redirect('welcome','viewbookings.php');
+                    
+                    return false;
+                }
+                if ($therow['roles'] == 2){
+                    
+                    redirect('you do not have clearance','login.php');
                     
                     return false;
                 }
@@ -79,8 +85,12 @@ class logincontroller
     {
         if(isset($_SESSION['authenticated']) === true)
         {
-            redirect("already logged in",'');
+            
+            redirect("already logged in",'dashboard.php');
+            
             return true;
+            
+            
         }
         else{
             return false;
@@ -94,11 +104,11 @@ class logincontroller
             unset($_SESSION['authenticated']);
             unset($_SESSION['auth_user']);
             unset($_SESSION['admin']);
-            unset($_SESSION['hahaha']);
             unset($_SESSION['user']);
             unset($_SESSION['auth_role']);
             unset($_SESSION['userid']);
             unset($_SESSION['user_id']);
+            unset($_SESSION['message']);
             return true;
         }
         else{
@@ -114,7 +124,7 @@ class logincontroller
               "
               <script>
                 alert('Not logged in as admin');
-                document.location.href = 'index.php';
+                document.location.href = 'viewbookings.php';
               </script>
               ";
         }

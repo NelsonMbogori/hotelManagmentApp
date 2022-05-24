@@ -16,7 +16,7 @@ if(isset($_POST['logout_btn']))
     $checklogout = $auth->logout();
     if($checklogout)
     {
-        redirect('logged out successfully','login.php');
+        redirect('logged out successfully','index.php');
     }
 }
  
@@ -49,6 +49,7 @@ if(isset($_POST['register_btn']))
     $fname = validateinput($db->conn, $_POST['fname']);
     $email = validateinput($db->conn, $_POST['email']);
     $password =validateinput($db->conn, $_POST['password']);
+    $title =validateinput($db->conn, $_POST['title']);
     $confirm_password = validateinput($db->conn, $_POST['cofirm_password']);
     $verify_token = md5(rand());
 
@@ -63,10 +64,10 @@ if(isset($_POST['register_btn']))
 
        }
        else{
-             $register_query = $register -> registration($fname,$email,$password,$verify_token);
+             $register_query = $register -> registration($name,$email,$password,$verify_token,$title,);
             if($register_query)
             {//successfully posted registration details
-                sendEmailVerification("$name","$email","$verify_token");
+                sendEmailVerification("$fname","$email","$verify_token");
                 // redirect("registered successfuly","login.php");
             }
             else{
@@ -79,14 +80,14 @@ if(isset($_POST['register_btn']))
         redirect("passwords dont match","registration.php");
     }
 }
-function sendEmailVerification($name,$email,$verify_token)
+function sendEmailVerification($verify_token)
     {
         $mail = new PHPMailer();
         $mail->isSMTP();                                            //Send using SMTP
         $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
         $mail->Username   = 'muthominelson4@gmail.com';                     //SMTP username
-        $mail->Password   = 'wmgo4848';                               //SMTP password
+        $mail->Password   = 'L54su0qr';                               //SMTP password
         $mail->SMTPSecure = 'tls';            //Enable implicit TLS encryption
         $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
@@ -113,14 +114,7 @@ function sendEmailVerification($name,$email,$verify_token)
         $mail->smtpClose();
     }
 
-    if(isset($_POST['logout_btn']))
-{
-    $checklogout = $auth->logout();
-    if($checklogout)
-    {
-        redirect('logged out successfully','login.php');
-    }
-}
+    
  
 
 

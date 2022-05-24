@@ -6,46 +6,38 @@ include_once('controlers/authenticatedaccess.php  ');
 $authenticated = new authenticatedaccess;
 
 
-$id = $_GET['user_id'];
+$id = $_GET['id'];
 $conn = mysqli_connect('localhost','root','','nelson');
 
-$query = "SELECT * FROM registration_2 WHERE user_id = '$id' ";
+$query = "SELECT * FROM users WHERE id = '$id' ";
 $data = mysqli_query($conn,$query);
-
-
 
 
 $data = mysqli_query($conn,$query);
 // $total = mysqli_num_rows($data);
 $result = mysqli_fetch_assoc($data);
 
-
-
-
 if(isset($_POST["update"])){
 
-$firstname = $_POST['firstname'];
-$middlename = $_POST['middlename'];
-$surname = $_POST['surname'];
-$checkin_date = $_POST['checkin_date'];
-$checkout_date = $_POST['checkout_date'];
-$room_type = $_POST['room_type'];
+$fname = $_POST['fname'];
+$email = $_POST['email'];
+$verify_status = $_POST['verify_status'];
+$roles = $_POST['roles'];
+$title = $_POST['title'];
 
-
-
- $query = "UPDATE registration_2 set firstname = '$firstname', middlename= '$middlename',room_type= '$room_type', surname='$surname',checkin_date='$checkin_date',checkout_date='$checkout_date' WHERE user_id = $id";
+ $query = "UPDATE users set fname = '$fname', email= '$email', verify_status='$verify_status',roles='$roles',title = '$title' WHERE id = $id";
 
  $data = mysqli_query($conn,$query);
  if($data)
  {
-    redirect('Data updated successfully','viewbookings.php');
-    //  echo
-    //   "
-    //   <script>
-    //     alert('Data updated successfully');
-    //     document.location.href = 'viewbookings.php';
-    //   </script>
-    //   ";
+    // redirect('Data updated successfully','viewbookings.php');
+     echo
+      "
+      <script>
+        alert('Data updated successfully');
+        document.location.href = 'users.php';
+      </script>
+      ";
       
  }
  else{
@@ -113,25 +105,19 @@ $room_type = $_POST['room_type'];
         </aside>
         <main class="main">
         <center>
-            <h2> update records</h2>
             <div class="form_card">
-
             <form action="" method="post">
-            <h3>firstname</h3>
-                <input type="text" name="firstname"class="form_input" placeholder="firstname" autofill="off" value="<?php echo $result['firstname'];?>">
                 
-                <h3>middlename</h3>
-                <input type="text" name="middlename"class="form_input"placeholder="middlename" autofill="off" value="<?php echo $result['middlename'];?>">
+                <input type="text" name="fname"class="form_input" placeholder="fname" autofill="off" value="<?php echo $result['fname'];?>">
                 
-                <h3>surname</h3>
-                <input type="text" name="surname"class="form_input"placeholder="surname" autofill="off" value="<?php echo $result['surname'];?>">
-                <h3>room type</h3>
-                <input type="text" name="room_type"class="form_input"placeholder="surname" autofill="off" value="<?php echo $result['room_type'];?>">
-
-                <h3>checkin_date</h3>
-                <input class="select" name="checkin_date" id="checkin_date" type="date"  value="<?php echo $result['checkin_date'];?>">
-                <h3>checkout_date</h3>
-                <input class="select" name="checkout_date" id="checkout_date" type="date" value="<?php echo $result['checkout_date'];?>">
+                
+                <input type="text" name="email"class="form_input"placeholder="email" autofill="off" value="<?php echo $result['email'];?>">
+                
+                <input type="text" name="title"class="form_input"placeholder="title" autofill="off" value="<?php echo $result['title'];?>">
+                
+                <input type="text" name="verify_status"class="form_input"placeholder="verify_status" autofill="off" value="<?php echo $result['verify_status'];?>">
+                
+                <input class="form_input" name="roles" id="roles" type="text"  value="<?php echo $result['roles'];?>">
 
                 
                 

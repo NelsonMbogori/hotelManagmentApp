@@ -8,9 +8,9 @@ class Registercontroller
         $db = new connection;
         $this ->conn = $db -> conn; 
     }
-    public function registration($fname, $email, $password,$verify_token)
+    public function registration($fname, $email, $password,$verify_token,$title)
     {
-        $register_query = "INSERT INTO users (fname,email,password,verify_token) VALUES('$fname','$email','$password','$verify_token')";
+        $register_query = "INSERT INTO users (fname,email,password,verify_token,title) VALUES('$fname','$email','$password','$verify_token','$title')";
         $result = $this->conn->query($register_query);
         return $result;
     }
@@ -29,7 +29,7 @@ class Registercontroller
         $result = $this->conn->query($checkuser);
 
         ///change
-        if($result->num_rows > 5){
+        if($result->num_rows > 1){
             return true;
         }
         else{

@@ -1,78 +1,117 @@
-<?php
-// include('configs/app.php');
-include('codes/authentication.php');
-//  include('includes/sidebar.php');
 
 
-
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--icons-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-    <link href="./styles/stle.css" rel="stylesheet">    
-    <title>Document</title>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gallery</title>
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+      
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./styles/style_home.css" />
+    <link rel="stylesheet" href="./styles/gallery.css" />
+   
+
 </head>
-<body class="body">
-    <div class="container">
-        <aside>
-            <div class="top">
-                <div class="logo">
-                    <img src = "./images/logo.png">
-                    <h1>name</h1>
-                    
-                </div>
-            </div>
-            <div class="close_btn">
+  <body>
+    <section>
+      
+      <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">la casa </label>
+        
+        <ul>
+          <li><a  class="no_underline" href="./index.php">Home</a></li>
+          <li><a class="no_underline" href="#">About</a></li>
+          <li><a class="no_underline" href="#">Contact</a></li>
+          <li><a class="no_underline" href="login.php">login</a></li>
+          <li><a class="no_underline" href="gallery.php">gallery</a></li>
 
-            </div>
-            <div class="side_bar">
-            <a href="dashboard.php"><span class="material-icons">dashboard</span>
-                    <h2>dashboard</h2>
-                </a><br><br>
-                <a href="bookings.php"><span class="material-icons">app_registration</span>
-                    <h2>book room</h2>
-                </a><br><br>
-                <a href="location.php" ><span class="material-icons">location_on</span>
-                    <h2>location</h2>
-                </a><br><br>
-                <a href="gallery.php"  class="active" ><span class="material-icons">collections</span>
-                    <h2>gallery</h2>
-                </a><br><br>
-                <a href="login.php"><span class="material-icons">login</span>
-                    <h2>login</h2>
-                </a>   
-                <a href="charts.php"><span class="material-icons">show_chart</span>
-                    <h2>analytics</h2>
-                </a>
-                <a href="login.php"><span class="material-icons">book</span>
-                    <h2>home</h2>
-                </a>
+          <li><a class="no_underline" href="feedback.php">feedback</a></li>
 
-                
 
-                <span class="material-icons">login</span>
-                    <form action="login.php" method="POST">
-                        <button type="submit" name="logout_btn">logout</button> 
-                    </form>
-                </a>               
-            </div>
-        </aside>
-        <main class="main">
-        <center>
-        <div class="form_card_login">      
-            <?php include('message.php'); ?>
-                
-        </div>
-    </center>
-        </main>
+        </ul>
+      </nav>
+    </section>
+  <center>
+
+  <p> single bedrooms </p>
+  <div class="carousel-wrapper">
+    <span id="item-1"></span>
+    <span id="item-2"></span>
+    <span id="item-3"></span>
+    <div class="carousel-item item-1">
+      <a href="#item-3" class="arrow-prev arrow"></a>
+      <a href="#item-2" class="arrow-next arrow"></a>
     </div>
+
+    <div class="carousel-item item-2">
+      <a href="#item-1" class="arrow-prev arrow"></a>
+      <a href="#item-3" class="arrow-next arrow"></a>
+    </div>
+
+    <div class="carousel-item item-3">
+      <a href="#item-2" class="arrow-prev arrow"></a>
+      <a href="#item-1" class="arrow-next arrow"></a>
+    </div>
+
+  </div>
+  <p> double bedrooms </p>
+  <div class="carousel-wrapper">
+    <span id="item-4"></span>
+    <span id="item-5"></span>
+    <span id="item-6"></span>
+    <div class="carousel-item item-4">
+      <a href="#item-6" class="arrow-prev arrow"></a>
+      <a href="#item-5" class="arrow-next arrow"></a>
+    </div>
+
+    <div class="carousel-item item-5">
+      <a href="#item-4" class="arrow-prev arrow"></a>
+      <a href="#item-6" class="arrow-next arrow"></a>
+    </div>
+
+    <div class="carousel-item item-6">
+      <a href="#item-5" class="arrow-prev arrow"></a>
+      <a href="#item-4" class="arrow-next arrow"></a>
+    </div>
+
+  </div>
+  <p> three bedrooms </p>
+  <div class="carousel-wrapper">
+    <span id="item-7"></span>
+    <span id="item-8"></span>
+    <span id="item-9"></span>
+    <div class="carousel-item item-7">
+      <a href="#item-9" class="arrow-prev arrow"></a>
+      <a href="#item-8" class="arrow-next arrow"></a>
+    </div>
+
+    <div class="carousel-item item-8">
+      <a href="#item-7" class="arrow-prev arrow"></a>
+      <a href="#item-9" class="arrow-next arrow"></a>
+    </div>
+
+    <div class="carousel-item item-9">
+      <a href="#item-8" class="arrow-prev arrow"></a>
+      <a href="#item-7" class="arrow-next arrow"></a>
+    </div>
+
+  </div>
+  </center>
+
 </body>
 </html>

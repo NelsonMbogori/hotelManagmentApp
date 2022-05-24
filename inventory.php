@@ -1,6 +1,6 @@
 <?php
 // include('configs/app.php');
-include('../codes/authentication.php');
+include('./codes/authentication.php');
 //  include('includes/sidebar.php');
 // $authenticated = new authenticatedaccess;
 ?>
@@ -13,8 +13,8 @@ include('../codes/authentication.php');
     <!--icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-    <link href="../styles/style2.css" rel="stylesheet">    
-    <link rel="stylesheet" href="../styles/style_form.css">
+    <link href="./styles/style2.css" rel="stylesheet">    
+    <link rel="stylesheet" href="./styles/style_form.css">
     <script defer src="form.js"></script>
     <title>Document</title>
 </head>
@@ -32,26 +32,25 @@ include('../codes/authentication.php');
 
             </div>
             <div class="side_bar">
-            <a href="dashboard.php"  ><span class="material-icons">dashboard</span>
-                    <h2>dashboard</h2>
+            <a href="dashboard.php" ><span class="material-icons">dashboard</span>
+                    <h2> dashboard</h2>
                 </a><br><br>
-                <a href="bookings.php" class="active"><span class="material-icons">app_registration</span>
-                    <h2>book room</h2>
+                <a href="viewbookings.php"><span class="material-icons">app_registration</span>
+                    <h2>bookings</h2>
                 </a><br><br>
-                <a href="location.php" ><span class="material-icons">location_on</span>
-                    <h2>location</h2>
+                <a href="viewinventory.php"  ><span class="material-icons">inventory</span>
+                    <h2>inventory</h2>
                 </a><br><br>
-                <a href="gallery.php" ><span class="material-icons">collections</span>
-                    <h2>gallery</h2>
+                <a href="inventory.php" class="active" ><span class="material-icons">inventory 2</span>
+                    <h2>inventory 2</h2>
                 </a><br><br>
+                
                 <a href="login.php"><span class="material-icons">login</span>
                     <h2>login</h2>
                 </a>   
-                <a href="charts.php"><span class="material-icons">show_chart</span>
-                    <h2>analytics</h2>
-                </a>
-                <a href="login.php"><span class="material-icons">book</span>
-                    <h2>bookings</h2>
+                
+                <a href="index.php" ><span class="material-icons">book</span>
+                    <h2>home</h2>
                 </a>
 
                 
@@ -78,7 +77,7 @@ include('../codes/authentication.php');
                 
                 
                 <input type="text" name="supplier"class="form_input"placeholder="supplier" autofill="off">
-                
+                <br><h1>description</h1><br>
                 <textarea class="form_input_description" placeholder="description" autofill="off"name = "description" rows = "10"  cols = "50">
             
                  </textarea class="form_input" placeholder="description" autofill="off"><br>     

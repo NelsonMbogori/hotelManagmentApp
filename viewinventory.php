@@ -1,3 +1,16 @@
+<?php
+// include('configs/app.php');
+include('controlers/authenticatedaccess.php');
+// //  include('includes/sidebar.php');
+// $auth->loggedin();
+
+$authenticated = new authenticatedaccess;
+$authenticated->isloggedin();
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +38,7 @@
             </div>
             <div class="side_bar">
             <a href="dashboard.php" ><span class="material-icons">dashboard</span>
-                    <h2>dashboard</h2>
+                    <h2> dashboard</h2>
                 </a><br><br>
                 <a href="viewbookings.php"><span class="material-icons">app_registration</span>
                     <h2>bookings</h2>
@@ -33,6 +46,10 @@
                 <a href="viewinventory.php" class="active" ><span class="material-icons">location_on</span>
                     <h2>inventory</h2>
                 </a><br><br>
+                <a href="inventory.php" ><span class="material-icons">inventory 2</span>
+                    <h2>inventory</h2>
+                </a><br><br>
+                
                 
                 <a href="login.php"><span class="material-icons">login</span>
                     <h2>login</h2>

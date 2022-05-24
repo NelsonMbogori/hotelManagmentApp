@@ -12,6 +12,7 @@ var style = {
     fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
     fontSmoothing: 'antialiased',
     fontSize: '16px',
+    
     '::placeholder': {
       color: '#aab7c4'
     }

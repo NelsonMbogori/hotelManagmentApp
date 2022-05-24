@@ -13,7 +13,7 @@ class authenticatedaccess
         $this ->isloggedin();
     }
     
-    private function isloggedin()
+    public function isloggedin()
     {
         if (! isset($_SESSION ['authenticated']))
         {

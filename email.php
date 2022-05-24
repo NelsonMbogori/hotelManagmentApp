@@ -32,6 +32,7 @@ function sendEmailVerification($name,$email,$verify_token)
         <h2>verify</h2>
         <hr>
         <br>
+        
         <a href='http://localhost/yr2_prj/verify-email.php?token=$verify_token'>click me</a>
     
     ";
@@ -55,7 +56,7 @@ if(isset($_POST['register_btn']))
     echo"sent or";
 
 
-    // $checkemail = "SELECT email FROM users WHERE email = '$email'LIMIT 1";
+    // $checkemail = "SELECT email FROM users WHERE email = '$email'LIMIT 2";
     // $checkemailrun = mysqli_query($conn,$checkemail);
     // if(mysqli_num_rows($checkemailrun)> 0)
     // {
@@ -77,3 +78,4 @@ if(isset($_POST['register_btn']))
     // }
 }
 ?>
+

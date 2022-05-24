@@ -8,7 +8,7 @@
 
 	$data1 = '';
 	$data2 = '';
-	$data3=0;
+
 
 	//query to get data from the table
 	$sql = "SELECT * FROM `datasets` ";
@@ -71,17 +71,16 @@ $authenticated2->isadm();
 
             </div>
             <div class="side_bar">
-            <a href="dashboard.php" ><span class="material-icons">dashboard</span>
+			<a href="index.php"><span class="material-icons">dashboard</span>
                     <h2>dashboard</h2>
                 </a><br><br>
-                <a href="bookings.php"><span class="material-icons">app_registration</span>
-                    <h2>book room</h2>
+                
                 </a><br><br>
-                <a href="location.php" ><span class="material-icons">location_on</span>
-                    <h2>location</h2>
+                <a href="viewinventory.php" ><span class="material-icons">location_on</span>
+                    <h2>inventory</h2>
                 </a><br><br>
-                <a href="gallery.php" ><span class="material-icons">collections</span>
-                    <h2>gallery</h2>
+                <a href="viewbookings.php" ><span class="material-icons">collections</span>
+                    <h2>bookings</h2>
                 </a><br><br>
                 <a href="login.php"><span class="material-icons">login</span>
                     <h2>login</h2>
@@ -89,8 +88,11 @@ $authenticated2->isadm();
                 <a href="charts.php"  class="active"><span class="material-icons">show_chart</span>
                     <h2>analytics</h2>
                 </a>
-                <a href="index.php"><span class="material-icons">book</span>
-                    <h2>home</h2>
+                <a href="users.php"  ><span class="material-icons">person</span>
+                    <h2>users</h2>
+                </a>
+                <a href="registration.php"   ><span class="material-icons">group</span>
+                    <h2> add users</h2>
                 </a>
 
                 

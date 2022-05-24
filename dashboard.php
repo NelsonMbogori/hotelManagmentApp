@@ -14,6 +14,22 @@ include_once('./controlers/logincontroller.php');
 $authenticated2 = new logincontroller;
 $authenticated2->isadm();
 
+$conn = new mysqli('localhost','root','','nelson');
+
+$query = "SELECT * FROM registration_2" ;
+$data = mysqli_query($conn,$query);
+$total_bookings = mysqli_num_rows($data);
+
+$query1 = "SELECT * FROM users" ;
+$data1 = mysqli_query($conn,$query1);
+$total_employees = mysqli_num_rows($data1);
+
+
+$query2 = "SELECT * FROM inventory" ;
+$data2 = mysqli_query($conn,$query2);
+$total_inv = mysqli_num_rows($data2);
+
+
 ?>
 
 
@@ -48,20 +64,25 @@ $authenticated2->isadm();
                 </a><br><br>
                 
                 </a><br><br>
-                <a href="viewinventory.php" ><span class="material-icons">location_on</span>
-                    <h2>inventory</h2>
-                </a><br><br>
                 <a href="viewbookings.php" ><span class="material-icons">collections</span>
                     <h2>bookings</h2>
                 </a><br><br>
+                <a href="viewinventory.php" ><span class="material-icons">inventory</span>
+                    <h2>inventory</h2>
+                </a><br><br>
+                
                 <a href="login.php"><span class="material-icons">login</span>
                     <h2>login</h2>
                 </a>   
                 <a href="charts.php"><span class="material-icons">show_chart</span>
                     <h2>analytics</h2>
                 </a>
-                <a href="users.php"><span class="material-icons">show_chart</span>
+                <a href="users.php"><span class="material-icons">person</span>
                     <h2>users</h2>
+                </a>
+                
+                <a href="registration.php"><span class="material-icons">group</span>
+                    <h2>add users</h2>
                 </a>
                 
 
@@ -79,19 +100,28 @@ $authenticated2->isadm();
             <div class="top_center">
                 <div class="date">
                 
-                    <input type="date">
                     <?php include('message.php'); ?>
                 </div>   
                 <div class="the3">
                     <div class="tot_bookings">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio eaque est, harum fuga cupiditate explicabo quod dolorum voluptatum, officia quis suscipit mollitia dolorem odit natus omnis ea, eligendi recusandae odio?
+                        <h2> total bookings:</h2>
+                        <br><br><br>
+                        <?php echo "<h2>".$total_bookings."</h2>"?>
                     </div>  
                     <div class="tot_exp">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio eaque est, harum fuga cupiditate explicabo quod dolorum voluptatum, officia quis suscipit mollitia dolorem odit natus omnis ea, eligendi recusandae odio?
+                    <h2> total employees:</h2>
+                    <br><br><br>
+                        <?php echo "<h2>".$total_employees."</h2>"?>
+                    
                     </div> 
                     <div class="tot_wage">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio eaque est, harum fuga cupiditate explicabo quod dolorum voluptatum, officia quis suscipit mollitia dolorem odit natus omnis ea, eligendi recusandae odio?
-                    </div> 
+                    <h2> total inventory items:</h2>
+                    <br><br><br>
+                        <?php echo "<h2>".$total_inv."</h2>"?>
+                        
+                </div> 
+                    
+                    
                 </div>
                 
             </div>

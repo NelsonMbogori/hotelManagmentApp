@@ -37,6 +37,19 @@ h5{
 
     
 }
+.form_input1_message{
+    width: 90%;
+    background-color: white;
+    border: 1px solid black ;
+    margin: 5px 0 10px;
+    height: 100px;
+    font-size: 30px;
+    border-radius: 20px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    color: black; 
+    cursor: pointer;
+}
 .form_input_description{
     height: 90px;
     border: 1px solid rgb(60, 49, 49) ;

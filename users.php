@@ -41,8 +41,11 @@
                 <a href="charts.php"><span class="material-icons">show_chart</span>
                     <h2>analytics</h2>
                 </a>
-                <a href="users.php"   class="active"><span class="material-icons">show_chart</span>
+                <a href="users.php"   class="active"><span class="material-icons">person</span>
                     <h2>users</h2>
+                </a>
+                <a href="registration.php"   ><span class="material-icons">group</span>
+                    <h2> add users</h2>
                 </a>
 
                 
@@ -89,6 +92,7 @@ $total = mysqli_num_rows($data);
 
 if($total != 0){
     ?>
+     <?php include('message.php'); ?>
     <table class="content_table">
     <thead >
     <tr>
@@ -98,6 +102,7 @@ if($total != 0){
         <th>verify_status</th>
         <th>added_at</th>
         <th>role</th>
+        <th>title</th>
         <th>action</th>
         
     </tr>
@@ -112,8 +117,9 @@ if($total != 0){
                 <td>".$result['verify_status']."</td>
                 <td>".$result['added_at']."</td>
                 <td>".$result['roles']."</td>
-                <td><a class='update'; href='updatebookings.php?id=$result[id]'>Update</a>
-                <a class='delete'; href='deletebookings.php?id=$result[id]'>Delete</a></td>
+                <td>".$result['title']."</td>
+                <td><a class='update'; href='updateusers.php?id=$result[id]'>Update</a>
+                <a class='delete'; href='deleteusers.php?id=$result[id]'>Delete</a></td>
             </tr> 
              ";
       }

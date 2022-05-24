@@ -16,6 +16,7 @@ $post = filter_var_array($_POST, FILTER_SANITIZE_STRING);
 $first_name = $post['first_name'];
 $last_name = $post['last_name'];
 $email = $post['email'];
+$amount = $post['amount'];
 $token = $post['stripeToken'];
 echo $token;
 
@@ -28,9 +29,9 @@ $customer = \Stripe\Customer::create(array(
 
 //charge customer customer
 $charge = \Stripe\charge::create(array(
-    "amount" => 5000,
+    "amount" => str_replace(",","",$amount)*100,
     "currency" =>"usd",
-    "description" => "different houses",
+    "description" => "with us.",
     "customer" => $customer->id
 ));
 //the customer data 
@@ -39,6 +40,7 @@ $customerData = [
     'id'=>$charge->customer,
     'first_name' => $first_name,
     'last_name' => $last_name,
+    'amount' => $amount,
     'email' => $email,
 ];
 

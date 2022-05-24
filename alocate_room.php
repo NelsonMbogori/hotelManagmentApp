@@ -6,34 +6,30 @@ include_once('controlers/authenticatedaccess.php  ');
 $authenticated = new authenticatedaccess;
 
 
+
+$room_id = $_GET['room_id'];
 $id = $_GET['user_id'];
 $conn = mysqli_connect('localhost','root','','nelson');
 
-$query = "SELECT * FROM registration_2 WHERE user_id = '$id' ";
+$query = "SELECT * FROM rooms WHERE room_id = '$room_id' ";
 $data = mysqli_query($conn,$query);
-
-
-
+var_dump($id);
+var_dump($room_id);
 
 $data = mysqli_query($conn,$query);
 // $total = mysqli_num_rows($data);
 $result = mysqli_fetch_assoc($data);
 
-
-
-
 if(isset($_POST["update"])){
 
-$firstname = $_POST['firstname'];
-$middlename = $_POST['middlename'];
-$surname = $_POST['surname'];
+
+$type = $_POST['type'];
+$status = $_POST['status'];
+$user_id = $_POST['user_id'];
 $checkin_date = $_POST['checkin_date'];
 $checkout_date = $_POST['checkout_date'];
-$room_type = $_POST['room_type'];
 
-
-
- $query = "UPDATE registration_2 set firstname = '$firstname', middlename= '$middlename',room_type= '$room_type', surname='$surname',checkin_date='$checkin_date',checkout_date='$checkout_date' WHERE user_id = $id";
+ $query = "UPDATE rooms set  type= '$type', status='$status',user_id='$user_id',checkin_date='$checkin_date' WHERE room_id = $room_id";
 
  $data = mysqli_query($conn,$query);
  if($data)
@@ -113,25 +109,21 @@ $room_type = $_POST['room_type'];
         </aside>
         <main class="main">
         <center>
-            <h2> update records</h2>
+        <?php echo "$id" ?>
             <div class="form_card">
-
             <form action="" method="post">
-            <h3>firstname</h3>
-                <input type="text" name="firstname"class="form_input" placeholder="firstname" autofill="off" value="<?php echo $result['firstname'];?>">
+            
+                <input type="text" name="user_id"class="form_input" placeholder="user_id" autofill="off" value="<?php echo $id ?>">
                 
-                <h3>middlename</h3>
-                <input type="text" name="middlename"class="form_input"placeholder="middlename" autofill="off" value="<?php echo $result['middlename'];?>">
                 
-                <h3>surname</h3>
-                <input type="text" name="surname"class="form_input"placeholder="surname" autofill="off" value="<?php echo $result['surname'];?>">
-                <h3>room type</h3>
-                <input type="text" name="room_type"class="form_input"placeholder="surname" autofill="off" value="<?php echo $result['room_type'];?>">
-
-                <h3>checkin_date</h3>
-                <input class="select" name="checkin_date" id="checkin_date" type="date"  value="<?php echo $result['checkin_date'];?>">
-                <h3>checkout_date</h3>
+                <input type="text" name="type"class="form_input"placeholder="type" autofill="off" value="<?php echo $result['type'];?>">
+                
+                
+                <input type="text" name="status"class="form_input"placeholder="status" autofill="off" value="<?php echo $result['status'];?>">
+                
+                <input class="select" name="checkin_date" id="checkin_date" type="date" value="<?php echo $result['checkin_date'];?>">
                 <input class="select" name="checkout_date" id="checkout_date" type="date" value="<?php echo $result['checkout_date'];?>">
+
 
                 
                 

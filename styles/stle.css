@@ -28,8 +28,7 @@
     height: 100vh;
     font-family: fredoka, sans-serif ;
     font-size: 0.5rem;
-    user-select: none;
-    overflow-x: hidden;
+    
     background-color: #f6f6f9;
     
 }
@@ -46,10 +45,7 @@ h1{
 h2{
     font-size: 20px;
 }
-.text-muted{
-    color: grey;
 
-}
 .container{
     display: grid;
     width:96%;
